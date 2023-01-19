@@ -2,6 +2,8 @@ local opt = vim.opt
 opt.number = true
 opt.title = true
 opt.termguicolors = true
+-- クリップボード
+--opt.clipboard = "unnamedplus"
 -- 検索時の強調表示
 opt.inccommand = "split"
 -- Windowsでパスの区切り文字をスラッシュで扱う
@@ -73,8 +75,6 @@ vim.opt.ttimeoutlen = 1
 -- 改行時の自動コメントアウトを無効にする
 opt.formatoptions:remove { "r", "o" }
 opt.formatoptions:append { "M", "j" }
--- クリップボード
---opt.clipboard = "unnamedplus"
 -- 折り畳みを有効
 opt.wrap = true
 -- 仮想編集を有効

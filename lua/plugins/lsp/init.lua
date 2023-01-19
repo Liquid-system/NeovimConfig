@@ -25,17 +25,6 @@ return {
           capabilities = capabilities,
         }
       end,
-      ["clangd"] = function()
-        require("lspconfig").clangd.setup {
-          on_attach = keys,
-          capabilities = capabilities,
-          cmd = {
-            "clangd",
-            "--clang-tidy",
-            "--cross-file-rename",
-          },
-        }
-      end,
       ["rust_analyzer"] = function()
         require("lspconfig").rust_analyzer.setup {
           on_attach = keys,
