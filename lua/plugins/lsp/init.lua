@@ -10,6 +10,7 @@ return {
     capabilities.offsetEncoding = { "utf-16" }
 
     require("plugins.lsp.diagnostics").setup()
+    require("neoconf").setup({})
     require("mason-lspconfig").setup {
       automatic_installation = false,
     }

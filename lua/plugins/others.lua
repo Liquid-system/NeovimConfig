@@ -1,5 +1,6 @@
 return {
   "lambdalisue/fern-hijack.vim",
+  "folke/neoconf.nvim",
   {
     "dstein64/vim-startuptime",
     cmd = "StartupTime"

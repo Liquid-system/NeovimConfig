@@ -34,7 +34,6 @@ return {
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
       border = "rounded",
       focusable = false,
-      relative = "cursor",
     })
   end,
 }

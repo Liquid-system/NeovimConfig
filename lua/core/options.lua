@@ -2,7 +2,7 @@ local opt = vim.opt
 opt.number = true
 opt.title = true
 opt.termguicolors = true
--- クリップボード
+-- クリップボード(win32yankだとクラッシュする)
 --opt.clipboard = "unnamedplus"
 -- 検索時の強調表示
 opt.inccommand = "split"
@@ -11,8 +11,6 @@ opt.shellslash = true
 -- 対応する括弧やブレースを表示
 opt.showmatch.matchtime = 1
 --opt.guioptions:append({"a"})
--- クリップボード設定
-opt.clipboard = "unnamedplus"
 -- 対応する括弧を強調表示
 opt.showmatch = true
 -- スワップファイルを作成しない
