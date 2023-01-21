@@ -23,6 +23,6 @@ return {
       }
     end, bufopts)
     vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-    --vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   end,
 }

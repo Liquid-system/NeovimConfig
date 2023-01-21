@@ -5,16 +5,36 @@ return {
     "williamboman/mason-lspconfig.nvim",
   },
   config = function()
-    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     capabilities.offsetEncoding = { "utf-16" }
+    capabilities.textDocument.completion.completionItem = {
+      documentationFormat = {
+        "markdown",
+        "plaintext",
+      },
+      snippetSupport = true,
+      preselectSupport = true,
+      insertReplaceSupport = true,
+      labelDetailsSupport = true,
+      deprecatedSupport = true,
+      commitCharactersSupport = true,
+      tagSupport = {
+        valueSet = { 1 },
+      },
+      resolveSupport = {
+        properties = {
+          "documentation",
+          "detail",
+          "additionalTextEdits",
+        },
+      },
+    }
 
-    require("plugins.lsp.diagnostics").setup()
-    require("neoconf").setup({})
+    require("neoconf").setup {}
     require("mason-lspconfig").setup {
       automatic_installation = false,
     }
-
+    require("plugins.lsp.diagnostics").setup()
     local keys = function(client, bufnr)
       require("plugins.lsp.keys").keys(client, bufnr)
     end
