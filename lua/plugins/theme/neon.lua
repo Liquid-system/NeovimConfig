@@ -1,7 +1,6 @@
 return {
   "rafamadriz/neon",
   lazy = true,
-  priority = 1000,
   config = function()
     vim.g.neon_style = "default"
     vim.g.neon_italic_comment = false

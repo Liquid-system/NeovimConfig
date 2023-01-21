@@ -9,13 +9,13 @@ return {
     "williamboman/mason.nvim",
     cmd = "Mason",
     opts = {
-      install_root_dir = vim.fn.expand("~/.mason_servers")
+      install_root_dir = vim.fs.normalize("~/.mason_servers")
     }
   },
   {
     "b0o/schemastore.nvim",
     lazy = "true",
-  },
+    },
   {
     "folke/neodev.nvim",
     ft = "lua",
