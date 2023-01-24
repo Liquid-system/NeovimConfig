@@ -2,10 +2,6 @@ return {
   "lambdalisue/fern-hijack.vim",
   "folke/neoconf.nvim",
   {
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime"
-  },
-  {
     "williamboman/mason.nvim",
     cmd = "Mason",
     opts = {
@@ -15,7 +11,7 @@ return {
   {
     "b0o/schemastore.nvim",
     lazy = "true",
-    },
+  },
   {
     "folke/neodev.nvim",
     ft = "lua",
@@ -48,7 +44,7 @@ return {
     event = "LspAttach",
     opts = {
       text = {
-        spinner = "clock",
+        spinner = "meter",
       },
     },
   },

@@ -35,10 +35,10 @@ vim.keymap.set("n", "PP", '"0p', default_opts)
 vim.keymap.set("n", "x", '"_x', default_opts)
 vim.keymap.set("v", "x", '"_x', default_opts)
 -- コピペ時の自動インデント
-vim.keymap.set("n", "p", "]p", default_opts)
+--[[ vim.keymap.set("n", "p", "]p", default_opts)
 vim.keymap.set("n", "P", "]P", default_opts)
 vim.keymap.set("n", "]p", "p", default_opts)
-vim.keymap.set("n", "]P", "P", default_opts)
+vim.keymap.set("n", "]P", "P", default_opts) ]]
 -- バッファサイズの変更
 vim.keymap.set("n", "<Up>", "<cmd>resize +1<cr>", default_opts)
 vim.keymap.set("n", "<Down>", "<cmd>resize -1<cr>", default_opts)
