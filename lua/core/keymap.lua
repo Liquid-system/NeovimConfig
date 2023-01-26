@@ -21,16 +21,15 @@ vim.keymap.set("n", "<F5>", "<cmd>luafile %<CR>", default_opts)
 vim.keymap.set("n", "<ESC>", "<cmd>nohl<CR><ESC>", default_opts)
 --tabを使用する
 vim.keymap.set("i", "<Leader><tab>", "<C-v><tab>", default_opts)
--- 表示行と論理行を入れ替える
+-- 論理行を表示行に置き換える
 vim.keymap.set("n", "k", "gk", default_opts)
-vim.keymap.set("n", "gk", "k", default_opts)
 vim.keymap.set("n", "j", "gj", default_opts)
-vim.keymap.set("n", "gj", "j", default_opts)
+vim.keymap.set("n", "0", "g0", default_opts)
+vim.keymap.set("n", "^", "g^", default_opts)
+vim.keymap.set("n", "$", "g$", default_opts)
 -- ビジュアルモードで < > キーによるインデント後にビジュアルモードが解除されないようにする
 vim.keymap.set("v", "<", "<gv", default_opts)
 vim.keymap.set("v", ">", ">gv", default_opts)
--- ヤンクした内容が上書きされないようにする
-vim.keymap.set("n", "PP", '"0p', default_opts)
 -- コマンドで削除した時はヤンクしない
 vim.keymap.set("n", "x", '"_x', default_opts)
 vim.keymap.set("v", "x", '"_x', default_opts)

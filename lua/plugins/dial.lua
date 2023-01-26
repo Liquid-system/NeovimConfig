@@ -1,7 +1,7 @@
 return {
   "monaqa/dial.nvim",
   config = function()
-    local augend = require("dial.augend")
+    local augend = require "dial.augend"
     require("dial.config").augends:register_group {
       default = {
         augend.constant.alias.bool,
@@ -23,6 +23,15 @@ return {
           cyclic = true,
         },
       },
+      visual = {
+        augend.integer.alias.decimal,
+        augend.integer.alias.hex,
+        augend.date.alias["%Y/%m/%d"],
+        augend.constant.alias.alpha,
+        augend.constant.alias.Alpha,
+      },
+    }
+    require("dial.config").augends:on_filetype {
       typescript = {
         augend.integer.alias.decimal,
         augend.integer.alias.hex,
@@ -32,31 +41,26 @@ return {
           cyclic = true,
         },
       },
-      visual = {
-        augend.integer.alias.decimal,
-        augend.integer.alias.hex,
-        augend.date.alias["%Y/%m/%d"],
-        augend.constant.alias.alpha,
-        augend.constant.alias.Alpha,
-      },
     }
   end,
   init = function()
-    vim.api.nvim_set_keymap("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
-    vim.api.nvim_set_keymap("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
-    vim.api.nvim_set_keymap("v", "<C-a>", require("dial.map").inc_visual("visual"), { noremap = true })
-    vim.api.nvim_set_keymap("v", "<C-x>", require("dial.map").dec_visual("visual"), { noremap = true })
-    vim.api.nvim_set_keymap("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
-    vim.api.nvim_set_keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = {
-        "typescript",
-        "javascript"
-      },
-      callback = function()
-        vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal("typescript"), { noremap = true })
-        vim.api.nvim_buf_set_keymap(0, "n", "<C-x>", require("dial.map").dec_normal("typescript"), { noremap = true })
-      end
-    })
-  end
+    vim.keymap.set("n", "<C-a>", function()
+      require("dial.map").inc_normal()
+    end, { noremap = true })
+    vim.keymap.set("n", "<C-x>", function()
+      require("dial.map").dec_normal()
+    end, { noremap = true })
+    vim.keymap.set("v", "<C-a>", function()
+      require("dial.map").inc_visual "visual"
+    end, { noremap = true })
+    vim.keymap.set("v", "<C-x>", function()
+      require("dial.map").dec_visual "visual"
+    end, { noremap = true })
+    vim.keymap.set("v", "g<C-a>", function()
+      require("dial.map").inc_gvisual()
+    end, { noremap = true })
+    vim.keymap.set("v", "g<C-x>", function()
+      require("dial.map").dec_gvisual()
+    end, { noremap = true })
+  end,
 }
