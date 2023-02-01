@@ -1,5 +1,11 @@
 return {
   "monaqa/dial.nvim",
+  keys = {
+    { "<C-a>", mode = { "n", "v" } },
+    { "<C-x>", mode = { "n", "v" } },
+    { "g<C-a>", mode = "v" },
+    { "g<C-x>", mode = "v" }
+  },
   config = function()
     local augend = require "dial.augend"
     require("dial.config").augends:register_group {
@@ -44,23 +50,11 @@ return {
     }
   end,
   init = function()
-    vim.keymap.set("n", "<C-a>", function()
-      require("dial.map").inc_normal()
-    end, { noremap = true })
-    vim.keymap.set("n", "<C-x>", function()
-      require("dial.map").dec_normal()
-    end, { noremap = true })
-    vim.keymap.set("v", "<C-a>", function()
-      require("dial.map").inc_visual()
-    end, { noremap = true })
-    vim.keymap.set("v", "<C-x>", function()
-      require("dial.map").dec_visual()
-    end, { noremap = true })
-    vim.keymap.set("v", "g<C-a>", function()
-      require("dial.map").inc_gvisual()
-    end, { noremap = true })
-    vim.keymap.set("v", "g<C-x>", function()
-      require("dial.map").dec_gvisual()
-    end, { noremap = true })
+    vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
+    vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
+    vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
+    vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
+    vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
+    vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
   end,
 }

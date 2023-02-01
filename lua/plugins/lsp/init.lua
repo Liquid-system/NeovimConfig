@@ -46,8 +46,37 @@ return {
           capabilities = capabilities,
         }
       end,
+      ["denols"] = function()
+        require("lspconfig")["denols"].setup({
+          on_attach = keys,
+          capabilities = capabilities,
+          root_dir = require("lspconfig").util.root_pattern("deno.json"),
+          init_options = {
+            lint = true,
+            unstable = true,
+            suggest = {
+              imports = {
+                hosts = {
+                  ["https://deno.land"] = true,
+                  ["https://cdn.nest.land"] = true,
+                  ["https://crux.land"] = true,
+                },
+              },
+            },
+          },
+
+        })
+      end,
+      ["tsserver"] = function()
+        require("lspconfig")["tsserver"].setup({
+          on_attach = keys,
+          capabilities = capabilities,
+          single_file_support = false,
+          root_dir = require("lspconfig").util.root_pattern("package.json"),
+        })
+      end,
       ["rust_analyzer"] = function()
-        require("lspconfig").rust_analyzer.setup {
+        require("lspconfig")["rust_analyzer"].setup {
           on_attach = keys,
           capabilities = capabilities,
           settings = {
@@ -72,8 +101,10 @@ return {
       end,
       ["jsonls"] = function()
         local status, schemastore = pcall(require, "schemastore")
-        if (not status) then return end
-        require("lspconfig").jsonls.setup {
+        if not status then
+          return
+        end
+        require("lspconfig")["jsonls"].setup {
           on_attach = keys,
           capabilities = capabilities,
           settings = {
@@ -85,8 +116,8 @@ return {
         }
       end,
       ["sumneko_lua"] = function()
-        require("neodev")
-        require("lspconfig").sumneko_lua.setup {
+        require "neodev"
+        require("lspconfig")["sumneko_lua"].setup {
           on_attach = keys,
           capabilities = capabilities,
           settings = {

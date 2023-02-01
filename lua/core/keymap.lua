@@ -14,11 +14,10 @@
 local default_opts = { silent = true, noremap = true }
 
 -- jjでノーマルモードへ移行
---vim.keymap.set("i", "jj", "<ESC>", default_opts)
--- F5でluaを実行
-vim.keymap.set("n", "<F5>", "<cmd>luafile %<CR>", default_opts)
---ESC2回で点滅が消える
+vim.keymap.set("t", "jj", "<ESC>", default_opts)
+--ESCで点滅が消える
 vim.keymap.set("n", "<ESC>", "<cmd>nohl<CR><ESC>", default_opts)
+vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]], default_opts)
 --tabを使用する
 vim.keymap.set("i", "<Leader><tab>", "<C-v><tab>", default_opts)
 -- 論理行を表示行に置き換える

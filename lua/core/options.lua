@@ -2,6 +2,7 @@ local opt = vim.opt
 opt.number = true
 opt.title = true
 opt.termguicolors = true
+opt.cmdheight = 0
 -- クリップボード(win32yankだとクラッシュする)
 --opt.clipboard = "unnamedplus"
 -- 検索時の強調表示
