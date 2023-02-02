@@ -22,7 +22,13 @@ return {
   },
   {
     "Pocco81/auto-save.nvim",
-    config = true,
+    opts = {
+      execution_message = {
+        message = function() -- message to print on save
+          return ("")
+        end
+      }
+    },
   },
   {
     "max397574/better-escape.nvim",
@@ -47,6 +53,11 @@ return {
         spinner = "meter",
       },
     },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    cmd = "Gitsigns",
+    config = true
   },
   {
     "folke/trouble.nvim",

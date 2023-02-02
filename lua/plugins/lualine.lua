@@ -57,7 +57,6 @@ return {
         lualine_x = {},
       },
       inactive_sections = {
-        -- these are to remove the defaults
         lualine_a = {},
         lualine_b = {},
         lualine_y = {},
@@ -78,23 +77,25 @@ return {
     end
 
     ins_left {
-      function()
-        return "▊"
-      end,
-      color = { fg = colors.darkblue }, -- Sets highlighting of component
-      padding = { left = 0, right = 1 }, -- We don't need space before this
-    }
-
-    ins_left {
       -- mode component
       function()
-        return ""
+        if vim.fn.mode() == ("i" or "ic" or "ix") then
+          return ""
+        elseif vim.fn.mode() == ("v" or "vs") then
+          return ""
+        elseif vim.fn.mode() == "no" then
+          return ""
+        elseif vim.fn.mode() == "t" then
+          return ""
+        else
+          return ""
+        end
       end,
       color = function()
         -- auto change color according to neovims mode
         local mode_color = {
           n = colors.red,
-          i = colors.green,
+          i = colors.blue,
           v = colors.blue,
           [""] = colors.blue,
           V = colors.blue,
@@ -112,13 +113,17 @@ return {
           rm = colors.cyan,
           ["r?"] = colors.cyan,
           ["!"] = colors.red,
-          t = colors.red,
+          t = colors.blue,
         }
         return { fg = mode_color[vim.fn.mode()] }
       end,
-      padding = { right = 1 },
+      padding = { left = 2, right = 2 },
     }
-
+    ins_left {
+      "filetype",
+      icon_only = true,
+      color = { fg = colors.magenta },
+    }
     ins_left {
       "filename",
       cond = conditions.buffer_not_empty,
@@ -126,7 +131,7 @@ return {
     }
 
     ins_left {
-      "branch",
+      "b:gitsigns_head",
       icon = "",
       color = { fg = colors.violet },
     }
@@ -147,7 +152,6 @@ return {
     -- for lualine it's any number greater then 2
     ins_right {
       "diff",
-      -- Is it me or the symbol for modified us really weird
       symbols = { added = " ", modified = " ", removed = " " },
       diff_color = {
         added = { fg = colors.green },
@@ -182,33 +186,24 @@ return {
       end,
     }
     ins_right {
-      "fileformat",
-      fmt = string.upper,
-      icons_enabled = true,
-      color = { fg = colors.green },
-    }
-    -- Add components to right sections
-    ins_right {
-      "o:encoding", -- option component same as &encoding in viml
-      fmt = string.upper, -- I'm not sure why it's upper case either ;)
-      cond = conditions.hide_in_width,
-      color = { fg = colors.green },
-    }
-    ins_right {
       -- filesize component
       "filesize",
       cond = conditions.buffer_not_empty,
       color = { fg = colors.green },
     }
     ins_right {
-      function()
-        return "▊"
-      end,
-      color = { fg = colors.darkblue },
-      padding = { left = 1 },
+      "o:encoding", -- option component same as &encoding in viml
+      fmt = string.upper,
+      cond = conditions.hide_in_width,
+      color = { fg = colors.green },
     }
-
-    -- Now don't forget to initialize lualine
+    ins_right {
+      "fileformat",
+      fmt = string.upper,
+      icons_enabled = true,
+      color = { fg = colors.green },
+      padding = { left = 1, right = 2 },
+    }
     lualine.setup(config)
   end,
 }

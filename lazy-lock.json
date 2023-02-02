@@ -17,6 +17,7 @@
   "fern.vim": { "branch": "main", "commit": "4841c8830f0354808952fd4f64869383413c194f" },
   "fidget.nvim": { "branch": "main", "commit": "44585a0c0085765195e6961c15529ba6c5a2a13b" },
   "friendly-snippets": { "branch": "main", "commit": "a6f7a1609addb4e57daa6bedc300f77f8d225ab7" },
+  "gitsigns.nvim": { "branch": "main", "commit": "0d4fe37ba5285171f3729da955955205f3fa945b" },
   "glyph-palette.vim": { "branch": "master", "commit": "c9b21e745b4fc11c410afbf4aa9dbe938c3d09c0" },
   "gruvbox.nvim": { "branch": "main", "commit": "2e93ac50b3e95d650e62729f8810a005861e77ad" },
   "indent-blankline.nvim": { "branch": "master", "commit": "8299fe7703dfff4b1752aeed271c3b95281a952d" },
