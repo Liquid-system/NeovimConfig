@@ -3,8 +3,8 @@ vim.g.mapleader = " "
 if vim.env.NVIM_COLORSCHEME == nil then
   vim.env.NVIM_COLORSCHEME = "gruvbox"
 end
-if vim.tbl_contains(vim.fn.getcompletion('', 'color'), vim.env.NVIM_COLORSCHEME) then
-  vim.cmd('colorscheme ' .. vim.env.NVIM_COLORSCHEME)
+if vim.tbl_contains(vim.fn.getcompletion("", "color"), vim.env.NVIM_COLORSCHEME) then
+  vim.cmd("colorscheme " .. vim.env.NVIM_COLORSCHEME)
 end
 require "core.lazy"
 require "core.options"
