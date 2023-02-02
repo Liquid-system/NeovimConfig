@@ -6,7 +6,7 @@ return {
       enable = false,
     },
     symbol_in_winbar = {
-      separator = '',
+      separator = "",
     },
   },
   init = function()

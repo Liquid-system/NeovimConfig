@@ -4,6 +4,6 @@ return {
   lazy = true,
   config = true,
   init = function()
-    vim.cmd("colorscheme bluloco")
-  end
+    vim.cmd "colorscheme bluloco"
+  end,
 }

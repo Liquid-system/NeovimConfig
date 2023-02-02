@@ -1,11 +1,11 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
   dependencies = {
-    "nvim-lua/plenary.nvim"
+    "nvim-lua/plenary.nvim",
   },
   config = function()
-    local b = require "null-ls".builtins
-    require "null-ls".setup {
+    local b = require("null-ls").builtins
+    require("null-ls").setup {
       sources = {
         -- Lua
         b.formatting.stylua,

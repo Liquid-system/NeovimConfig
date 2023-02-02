@@ -29,7 +29,7 @@ return {
             ["as"] = "@statement.outer",
           },
         },
-      }
+      },
     }
   end,
 }

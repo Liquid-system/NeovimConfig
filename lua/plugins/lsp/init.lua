@@ -47,10 +47,10 @@ return {
         }
       end,
       ["denols"] = function()
-        require("lspconfig")["denols"].setup({
+        require("lspconfig")["denols"].setup {
           on_attach = keys,
           capabilities = capabilities,
-          root_dir = require("lspconfig").util.root_pattern("deno.json"),
+          root_dir = require("lspconfig").util.root_pattern "deno.json",
           init_options = {
             lint = true,
             unstable = true,
@@ -64,16 +64,15 @@ return {
               },
             },
           },
-
-        })
+        }
       end,
       ["tsserver"] = function()
-        require("lspconfig")["tsserver"].setup({
+        require("lspconfig")["tsserver"].setup {
           on_attach = keys,
           capabilities = capabilities,
           single_file_support = false,
-          root_dir = require("lspconfig").util.root_pattern("package.json"),
-        })
+          root_dir = require("lspconfig").util.root_pattern "package.json",
+        }
       end,
       ["rust_analyzer"] = function()
         require("lspconfig")["rust_analyzer"].setup {

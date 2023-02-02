@@ -4,7 +4,7 @@ return {
     { "<C-a>", mode = { "n", "v" } },
     { "<C-x>", mode = { "n", "v" } },
     { "g<C-a>", mode = "v" },
-    { "g<C-x>", mode = "v" }
+    { "g<C-x>", mode = "v" },
   },
   config = function()
     local augend = require "dial.augend"

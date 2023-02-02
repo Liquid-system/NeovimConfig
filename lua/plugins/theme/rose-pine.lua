@@ -1,6 +1,6 @@
 return {
   "rose-pine/neovim",
-    name = "rose-pine",
+  name = "rose-pine",
   lazy = true,
   opts = {
     disable_italics = true,
