@@ -3,6 +3,7 @@ opt.number = true
 opt.title = true
 opt.termguicolors = true
 opt.cmdheight = 0
+opt.signcolumn = "yes"
 -- クリップボード(win32yankだとクラッシュする)
 --opt.clipboard = "unnamedplus"
 -- 検索時の強調表示
@@ -65,12 +66,12 @@ extends: ウィンドウの幅が狭くて右に省略された文字がある�
 precedes: ウィンドウの幅が狭くて左に省略された文字がある記号
 nbsp: 不可視のスペース]]
 opt.listchars = {
-  tab = "󿲖 ",
+  tab = " ",
   trail = "·",
   --eol = ""
 }
 -- ノーマルモードから出るまでの時間を短縮
-vim.opt.ttimeoutlen = 1
+opt.ttimeoutlen = 1
 -- 改行時の自動コメントアウトを無効にする
 opt.formatoptions:remove { "r", "o" }
 opt.formatoptions:append { "M", "j" }
@@ -85,8 +86,16 @@ opt.wildignore =
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.termguicolors = true
+-- 行を跨いで移動出来る様にする
+opt.whichwrap = "b,s,h,l,[,],<,>,~"
+-- undoの永続化
+opt.undodir = vim.fn.stdpath "state"
+opt.undofile = true
+-- ファイル末尾の記号を消す
+opt.fillchars = "eob: "
+opt.helplang = { "ja", "en" }
 -- 英語表示
-vim.api.nvim_command "language messages C"
+-- vim.api.nvim_command "language messages C"
 --fold
 vim.o.foldcolumn = "0"
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -94,8 +103,7 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
--- 行を跨いで移動出来る様にする
-opt.whichwrap = "b,s,h,l,[,],<,>,~"
+
 --マウスの設定
 vim.cmd.aunmenu { "PopUp.How-to\\ disable\\ mouse" }
 vim.cmd.aunmenu { "PopUp.-1-" }

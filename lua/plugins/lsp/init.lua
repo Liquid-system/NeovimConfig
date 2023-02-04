@@ -35,15 +35,30 @@ return {
       automatic_installation = false,
     }
     require("plugins.lsp.diagnostics").setup()
-    local keys = function(client, bufnr)
-      require("plugins.lsp.keys").keys(client, bufnr)
-    end
+    local keys = require("plugins.lsp.keys").keys()
 
     require("mason-lspconfig").setup_handlers {
       function(server_name)
         require("lspconfig")[server_name].setup {
           on_attach = keys,
           capabilities = capabilities,
+        }
+      end,
+      ["clangd"] = function()
+        require("lspconfig")["clangd"].setup {
+          on_attach = keys,
+          capabilities = capabilities,
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--pch-storage=memory",
+            "--query-driver=/usr/bin/clang++,/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+            "--clang-tidy",
+            "--all-scopes-completion",
+            "--completion-style=detailed",
+            "--header-insertion-decorators",
+            "--header-insertion=iwyu",
+          },
         }
       end,
       ["denols"] = function()

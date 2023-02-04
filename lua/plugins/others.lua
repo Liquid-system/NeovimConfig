@@ -25,9 +25,9 @@ return {
     opts = {
       execution_message = {
         message = function() -- message to print on save
-          return ("")
-        end
-      }
+          return ""
+        end,
+      },
     },
   },
   {
@@ -56,8 +56,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    cmd = "Gitsigns",
-    config = true
+    config = true,
   },
   {
     "folke/trouble.nvim",

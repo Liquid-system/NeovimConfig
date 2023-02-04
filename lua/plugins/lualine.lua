@@ -3,7 +3,6 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local lualine = require "lualine"
-
     local colors = {
       bg = "#202328",
       fg = "#bbc2cf",
@@ -79,13 +78,12 @@ return {
     ins_left {
       -- mode component
       function()
-        if vim.fn.mode() == ("i" or "ic" or "ix") then
+        local mode_state = vim.api.nvim_get_mode().mode
+        if mode_state == ("i" or "ic" or "ix") then
           return ""
-        elseif vim.fn.mode() == ("v" or "vs") then
+        elseif mode_state == ("v" or "vs" or "V" or "Vs") then
           return ""
-        elseif vim.fn.mode() == "no" then
-          return ""
-        elseif vim.fn.mode() == "t" then
+        elseif mode_state == "t" then
           return ""
         else
           return ""
@@ -115,7 +113,7 @@ return {
           ["!"] = colors.red,
           t = colors.blue,
         }
-        return { fg = mode_color[vim.fn.mode()] }
+        return { fg = mode_color[vim.api.nvim_get_mode().mode] }
       end,
       padding = { left = 2, right = 2 },
     }
@@ -131,7 +129,7 @@ return {
     }
 
     ins_left {
-      "b:gitsigns_head",
+      "branch",
       icon = "",
       color = { fg = colors.violet },
     }
@@ -202,7 +200,13 @@ return {
       fmt = string.upper,
       icons_enabled = true,
       color = { fg = colors.green },
-      padding = { left = 1, right = 2 },
+    }
+    ins_right {
+      function()
+        local date = os.date [[ %Y/%m/%d]]
+        return string.format(date)
+      end,
+      color = { fg = colors.green },
     }
     lualine.setup(config)
   end,

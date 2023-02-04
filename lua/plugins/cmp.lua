@@ -2,12 +2,12 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "saadparwaiz1/cmp_luasnip",
-    "onsails/lspkind.nvim",
-    --"hrsh7th/cmp-nvim-lsp-signature-help"
+    { "hrsh7th/cmp-buffer", event = "InsertEnter" },
+    { "hrsh7th/cmp-path", event = "InsertEnter" },
+    { "hrsh7th/cmp-cmdline", event = "ModeChanged" },
+    { "saadparwaiz1/cmp_luasnip", event = "InsertEnter" },
+    { "onsails/lspkind.nvim", event = "InsertEnter" },
+    --"hrsh7th/cmp-nvim-lsp-signature-help, event = 'InsertEnter'},
   },
   config = function()
     local cmp = require "cmp"
@@ -23,6 +23,7 @@ return {
         { "│", hl_name },
       }
     end
+
     cmp.setup {
       window = {
         completion = {
