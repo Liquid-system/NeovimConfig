@@ -4,6 +4,7 @@ opt.title = true
 opt.termguicolors = true
 opt.cmdheight = 0
 opt.signcolumn = "yes"
+opt.background = "dark"
 -- クリップボード(win32yankだとクラッシュする)
 --opt.clipboard = "unnamedplus"
 -- 検索時の強調表示
@@ -103,7 +104,6 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
-
 --マウスの設定
 vim.cmd.aunmenu { "PopUp.How-to\\ disable\\ mouse" }
 vim.cmd.aunmenu { "PopUp.-1-" }
