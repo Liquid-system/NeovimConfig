@@ -1,7 +1,6 @@
 return {
     "lambdalisue/fern.vim",
     dependencies = {
-        --"TheLeoP/fern-renderer-web-devicons.nvim",
         "lambdalisue/nerdfont.vim",
         "lambdalisue/fern-renderer-nerdfont.vim"
     },
@@ -14,7 +13,6 @@ return {
       vim.g["fern#renderer#default#leaf_symbol"] = "├─ "
       vim.g["fern#renderer#default#collapsed_symbol"] = "├─ "
       vim.g["fern#renderer#default#expanded_symbol"] = "├┬ "
-      --vim.g["fern#renderer"] = "nvim-web-devicons"
       vim.g["fern#renderer"] = "nerdfont"
       vim.g["fern#renderer#nerdfont#indent_markers"] = 1
       vim.g["fern#default_hidden"] = 1
