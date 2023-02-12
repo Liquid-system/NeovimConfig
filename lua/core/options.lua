@@ -93,7 +93,7 @@ opt.whichwrap = "b,s,h,l,[,],<,>,~"
 opt.undodir = vim.fn.stdpath "state"
 opt.undofile = true
 -- ファイル末尾の記号を消す
-opt.fillchars = "eob: "
+opt.fillchars:append "eob: "
 opt.helplang = { "ja", "en" }
 -- 英語表示
 -- vim.api.nvim_command "language messages C"
