@@ -38,10 +38,10 @@ vim.keymap.set("n", "P", "]P", default_opts)
 vim.keymap.set("n", "]p", "p", default_opts)
 vim.keymap.set("n", "]P", "P", default_opts) ]]
 -- バッファサイズの変更
-vim.keymap.set("n", "<Up>", "<cmd>resize +1<cr>", default_opts)
-vim.keymap.set("n", "<Down>", "<cmd>resize -1<cr>", default_opts)
-vim.keymap.set("n", "<Left>", "<cmd>vertical resize -1<cr>", default_opts)
-vim.keymap.set("n", "<Right>", "<cmd>vertical resize +1<cr>", default_opts)
+vim.keymap.set("n", "<Up>", "<cmd>resize +1<CR>", default_opts)
+vim.keymap.set("n", "<Down>", "<cmd>resize -1<CR>", default_opts)
+vim.keymap.set("n", "<Left>", "<cmd>vertical resize -1<CR>", default_opts)
+vim.keymap.set("n", "<Right>", "<cmd>vertical resize +1<CR>", default_opts)
 -- バッファ間のカーソルの移動
 vim.keymap.set("n", "<Leader>w", "<C-w>", default_opts)
 vim.keymap.set("n", "<Leader>j", "<C-w>j", default_opts)

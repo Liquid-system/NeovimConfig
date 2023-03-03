@@ -5,7 +5,7 @@ opt.termguicolors = true
 opt.cmdheight = 0
 opt.signcolumn = "yes"
 opt.background = "dark"
-opt.clipboard:append { "unnamed", "unnamedplus" }
+opt.clipboard = { "unnamed", "unnamedplus" }
 -- 検索時の強調表示
 opt.inccommand = "split"
 -- Windowsでパスの区切り文字をスラッシュで扱う

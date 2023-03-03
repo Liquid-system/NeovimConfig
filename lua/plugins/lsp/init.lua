@@ -130,7 +130,7 @@ return {
         }
       end,
       ["lua_ls"] = function()
-        require "neodev"
+        require "neodev".setup()
         require("lspconfig")["lua_ls"].setup {
           on_attach = keys,
           capabilities = capabilities,

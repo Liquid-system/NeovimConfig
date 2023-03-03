@@ -16,6 +16,7 @@ return {
         b.diagnostics.pylint,
         --clang
         b.formatting.clang_format,
+        b.formatting.uncrustify,
         --rust
         b.formatting.rustfmt,
         --CMake
